@@ -356,6 +356,79 @@ body.dark {
   margin-right: 8px;
 }
 
+.category-card{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    background:var(--card);
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.category-item{
+
+    margin-bottom:16px;
+
+}
+
+.category-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+}
+
+.category-name{
+
+    font-weight:600;
+
+    color:var(--text);
+
+}
+
+.category-amount{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.progress{
+
+    width:100%;
+
+    height:8px;
+
+    background:var(--border);
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+}
+
+.progress-bar{
+
+    height:100%;
+
+    background:var(--primary);
+
+    border-radius:50px;
+
+    transition:.4s;
+}
+
 .transaction-card {
   background: var(--card);
   padding: 25px;

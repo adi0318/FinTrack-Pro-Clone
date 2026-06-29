@@ -1,6 +1,6 @@
 const currentUser = getCurrentUser();
 if (!currentUser || localStorage.getItem("isLoggedIn") !== "true") {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 const dashboardBtn = document.getElementById("dashboardBtn");
@@ -55,7 +55,7 @@ logoutBtn.addEventListener("click", () => {
     const confirmLogout = confirm("Logout from FinTrack Pro?");
     if (!confirmLogout) return;
     logoutUser();
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 });
 
 addTransactionBtn.addEventListener("click", () => {
@@ -86,6 +86,76 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+function renderCategorySpending(){
+
+    const container = document.getElementById("categorySpending");
+
+    const transactions = getUserTransactions();
+
+    container.innerHTML = "";
+
+    const categories = {};
+
+    transactions.forEach(transaction=>{
+
+        if(transaction.type==="expense"){
+
+            if(!categories[transaction.category]){
+
+                categories[transaction.category]=0;
+
+            }
+
+            categories[transaction.category]+=Number(transaction.amount);
+
+        }
+
+    });
+
+    const values = Object.values(categories);
+
+    if(values.length===0){
+
+        container.innerHTML="<p>No expense data available.</p>";
+
+        return;
+
+    }
+
+    const max=Math.max(...values);
+
+    Object.entries(categories).forEach(([name,amount])=>{
+
+        const percent=(amount/max)*100;
+
+        container.innerHTML+=`
+
+        <div class="category-item">
+
+            <div class="category-top">
+
+                <span class="category-name">${name}</span>
+
+                <span class="category-amount">${formatCurrency(amount)}</span>
+
+            </div>
+
+            <div class="progress">
+
+                <div class="progress-bar"
+                    style="width:${percent}%">
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
 function refreshDashboard() {
 
     updateCards();
@@ -94,6 +164,8 @@ function refreshDashboard() {
     if (typeof renderChart === "function") {
         renderChart();
     }
+
+    renderCategorySpending();
 }
 
 function updateCards() {
