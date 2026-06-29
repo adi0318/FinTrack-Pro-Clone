@@ -133,34 +133,36 @@
             <canvas id="cashChart"></canvas>
           </div>
 
-          <div class="preference-card">
-            <div class="section-title">Preferences</div>
+          <div class="middle-grid-right">
+            <div class="preference-card">
+              <div class="section-title">Preferences</div>
 
-            <div class="preference-item">
-              <span> Dark Mode </span>
+              <div class="preference-item">
+                <span> Dark Mode </span>
 
-              <label class="switch">
-                <input type="checkbox" id="themeToggle" />
+                <label class="switch">
+                  <input type="checkbox" id="themeToggle" />
 
-                <span class="slider"></span>
-              </label>
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <button id="resetDataBtn" class="reset-btn">
+                <i class="ri-delete-bin-6-fill"></i>
+
+                Reset All Data
+              </button>
             </div>
 
-            <button id="resetDataBtn" class="reset-btn">
-              <i class="ri-delete-bin-6-fill"></i>
+            <div class="category-card">
+              <div class="card-header">
+                <h3>Category Spending</h3>
 
-              Reset All Data
-            </button>
-          </div>
+                <i class="ri-pie-chart-2-fill"></i>
+              </div>
 
-          <div class="card category-card">
-            <div class="card-header">
-              <h3>Category Spending</h3>
-
-              <i class="ri-pie-chart-2-fill"></i>
+              <div id="categorySpending"></div>
             </div>
-
-            <div id="categorySpending"></div>
           </div>
         </div>
 
