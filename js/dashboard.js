@@ -1,6 +1,6 @@
 const currentUser = getCurrentUser();
 if (!currentUser || localStorage.getItem("isLoggedIn") !== "true") {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 const dashboardBtn = document.getElementById("dashboardBtn");
@@ -55,7 +55,7 @@ logoutBtn.addEventListener("click", () => {
     const confirmLogout = confirm("Logout from FinTrack Pro?");
     if (!confirmLogout) return;
     logoutUser();
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 });
 
 addTransactionBtn.addEventListener("click", () => {
