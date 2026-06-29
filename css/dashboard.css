@@ -357,19 +357,12 @@ body.dark {
 }
 
 .category-card{
-
     margin-top:20px;
-
     padding:20px;
-
     background:var(--card);
-
     border-radius:16px;
-
     box-shadow:var(--shadow);
-
-    max-height: 300px;
-
+    max-height: 233.8px;
     overflow-y: auto;
 }
 
